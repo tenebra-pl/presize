@@ -1,0 +1,125 @@
+# Dutch translation of Presize.
+# Copyright (C) 2026 Jacek Tobiasz
+# This file is distributed under the same license as the presize package.
+msgid ""
+msgstr ""
+"Project-Id-Version: presize\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Top left"
+msgstr "Linksboven"
+
+msgid "Top"
+msgstr "Boven"
+
+msgid "Top right"
+msgstr "Rechtsboven"
+
+msgid "Left"
+msgstr "Links"
+
+msgid "Center"
+msgstr "Midden"
+
+msgid "Right"
+msgstr "Rechts"
+
+msgid "Bottom left"
+msgstr "Linksonder"
+
+msgid "Bottom"
+msgstr "Onder"
+
+msgid "Bottom right"
+msgstr "Rechtsonder"
+
+msgid "Where it is now"
+msgstr "Waar het nu staat"
+
+msgid "Add a preset"
+msgstr "Voorinstelling toevoegen"
+
+msgid "Presets"
+msgstr "Voorinstellingen"
+
+msgid "Press a preset’s shortcut and the active window takes that size and place. Click a preset to change it."
+msgstr "Druk op de sneltoets van een voorinstelling en het actieve venster krijgt die grootte en plaats. Klik op een voorinstelling om deze te wijzigen."
+
+msgid "No shortcut"
+msgstr "Geen sneltoets"
+
+msgid "Unnamed preset"
+msgstr "Naamloze voorinstelling"
+
+msgid "% of screen"
+msgstr "% van het scherm"
+
+msgid "px"
+msgstr "px"
+
+msgid "Name"
+msgstr "Naam"
+
+msgid "Measure size in"
+msgstr "Grootte meten in"
+
+msgid "Pixels"
+msgstr "Pixels"
+
+msgid "Percent of screen"
+msgstr "Procent van het scherm"
+
+msgid "Width"
+msgstr "Breedte"
+
+msgid "Height"
+msgstr "Hoogte"
+
+msgid "Position the window"
+msgstr "Venster positioneren"
+
+msgid "Off: the window only changes size and stays where it is"
+msgstr "Uit: het venster verandert alleen van grootte en blijft waar het is"
+
+msgid "Put the window"
+msgstr "Venster plaatsen"
+
+msgid "Shortcut"
+msgstr "Sneltoets"
+
+msgid "Click here, then press the keys you want"
+msgstr "Klik hier en druk dan op de gewenste toetsen"
+
+msgid "Remove this preset"
+msgstr "Deze voorinstelling verwijderen"
+
+msgid "Drag to reorder"
+msgstr "Slepen om te herschikken"
+
+msgid "Already used by the preset “%s”"
+msgstr "Al in gebruik door de voorinstelling ‘%s’"
+
+msgid "Already used by GNOME for “%s”"
+msgstr "Al in gebruik door GNOME voor ‘%s’"
+
+msgid "Already used by your own GNOME shortcut “%s”"
+msgstr "Al in gebruik door uw eigen GNOME-sneltoets ‘%s’"
+
+msgid "New shortcut"
+msgstr "Nieuwe sneltoets"
+
+msgid "Press the keys you want to use"
+msgstr "Druk op de toetsen die u wilt gebruiken"
+
+msgid "Backspace removes the shortcut, Escape cancels"
+msgstr "Backspace verwijdert de sneltoets, Escape annuleert"
+
+msgid "Shortcuts already used by the system cannot be assigned here."
+msgstr "Sneltoetsen die het systeem al gebruikt, kunnen hier niet worden toegewezen."
+
+msgid "Try a different combination."
+msgstr "Probeer een andere combinatie."

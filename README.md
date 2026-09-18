@@ -91,6 +91,19 @@ Presize touches only stable public APIs (keyboard grabs, the focused window,
 work areas, libadwaita), so most releases will need nothing more than the new
 number.
 
+## Translations
+
+The interface follows the language of your GNOME session automatically. Presize
+ships in English, Polish, German, Spanish, French, Italian, Brazilian Portuguese,
+Russian, Ukrainian, Simplified Chinese, Turkish, Czech, Dutch and Japanese. Any
+string without a translation falls back to English.
+
+Most of these translations were drafted by the author with machine help and have
+not been reviewed by native speakers. Corrections are very welcome: edit the
+matching file in `po/` and open a pull request, or open an issue quoting the
+wrong string. To add a language, copy `po/pl.po` to `po/<code>.po`, translate the
+`msgstr` lines, and run `make build` to check it compiles.
+
 ## License
 
 GPL-2.0-or-later. See [LICENSE](LICENSE).

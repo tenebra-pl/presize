@@ -1,0 +1,125 @@
+# Czech translation of Presize.
+# Copyright (C) 2026 Jacek Tobiasz
+# This file is distributed under the same license as the presize package.
+msgid ""
+msgstr ""
+"Project-Id-Version: presize\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgid "Top left"
+msgstr "Vlevo nahoře"
+
+msgid "Top"
+msgstr "Nahoře"
+
+msgid "Top right"
+msgstr "Vpravo nahoře"
+
+msgid "Left"
+msgstr "Vlevo"
+
+msgid "Center"
+msgstr "Uprostřed"
+
+msgid "Right"
+msgstr "Vpravo"
+
+msgid "Bottom left"
+msgstr "Vlevo dole"
+
+msgid "Bottom"
+msgstr "Dole"
+
+msgid "Bottom right"
+msgstr "Vpravo dole"
+
+msgid "Where it is now"
+msgstr "Kde je teď"
+
+msgid "Add a preset"
+msgstr "Přidat předvolbu"
+
+msgid "Presets"
+msgstr "Předvolby"
+
+msgid "Press a preset’s shortcut and the active window takes that size and place. Click a preset to change it."
+msgstr "Stiskněte zkratku předvolby a aktivní okno získá danou velikost a umístění. Klepnutím na předvolbu ji změníte."
+
+msgid "No shortcut"
+msgstr "Bez zkratky"
+
+msgid "Unnamed preset"
+msgstr "Nepojmenovaná předvolba"
+
+msgid "% of screen"
+msgstr "% obrazovky"
+
+msgid "px"
+msgstr "px"
+
+msgid "Name"
+msgstr "Název"
+
+msgid "Measure size in"
+msgstr "Velikost udávat v"
+
+msgid "Pixels"
+msgstr "Pixelech"
+
+msgid "Percent of screen"
+msgstr "Procentech obrazovky"
+
+msgid "Width"
+msgstr "Šířka"
+
+msgid "Height"
+msgstr "Výška"
+
+msgid "Position the window"
+msgstr "Umísťovat okno"
+
+msgid "Off: the window only changes size and stays where it is"
+msgstr "Vypnuto: okno jen změní velikost a zůstane, kde je"
+
+msgid "Put the window"
+msgstr "Umístit okno"
+
+msgid "Shortcut"
+msgstr "Zkratka"
+
+msgid "Click here, then press the keys you want"
+msgstr "Klepněte sem a stiskněte požadované klávesy"
+
+msgid "Remove this preset"
+msgstr "Odebrat tuto předvolbu"
+
+msgid "Drag to reorder"
+msgstr "Přetažením změníte pořadí"
+
+msgid "Already used by the preset “%s”"
+msgstr "Již používá předvolba „%s“"
+
+msgid "Already used by GNOME for “%s”"
+msgstr "Již používá GNOME pro „%s“"
+
+msgid "Already used by your own GNOME shortcut “%s”"
+msgstr "Již používá vaše vlastní zkratka GNOME „%s“"
+
+msgid "New shortcut"
+msgstr "Nová zkratka"
+
+msgid "Press the keys you want to use"
+msgstr "Stiskněte klávesy, které chcete používat"
+
+msgid "Backspace removes the shortcut, Escape cancels"
+msgstr "Backspace zkratku odebere, Escape zruší"
+
+msgid "Shortcuts already used by the system cannot be assigned here."
+msgstr "Zkratky, které již používá systém, zde nelze přiřadit."
+
+msgid "Try a different combination."
+msgstr "Zkuste jinou kombinaci."

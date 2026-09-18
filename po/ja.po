@@ -1,0 +1,125 @@
+# Japanese translation of Presize.
+# Copyright (C) 2026 Jacek Tobiasz
+# This file is distributed under the same license as the presize package.
+msgid ""
+msgstr ""
+"Project-Id-Version: presize\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Top left"
+msgstr "左上"
+
+msgid "Top"
+msgstr "上"
+
+msgid "Top right"
+msgstr "右上"
+
+msgid "Left"
+msgstr "左"
+
+msgid "Center"
+msgstr "中央"
+
+msgid "Right"
+msgstr "右"
+
+msgid "Bottom left"
+msgstr "左下"
+
+msgid "Bottom"
+msgstr "下"
+
+msgid "Bottom right"
+msgstr "右下"
+
+msgid "Where it is now"
+msgstr "現在の位置"
+
+msgid "Add a preset"
+msgstr "プリセットを追加"
+
+msgid "Presets"
+msgstr "プリセット"
+
+msgid "Press a preset’s shortcut and the active window takes that size and place. Click a preset to change it."
+msgstr "プリセットのショートカットを押すと、アクティブなウィンドウがそのサイズと位置になります。プリセットをクリックすると変更できます。"
+
+msgid "No shortcut"
+msgstr "ショートカットなし"
+
+msgid "Unnamed preset"
+msgstr "名前のないプリセット"
+
+msgid "% of screen"
+msgstr "% (画面比)"
+
+msgid "px"
+msgstr "px"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "Measure size in"
+msgstr "サイズの単位"
+
+msgid "Pixels"
+msgstr "ピクセル"
+
+msgid "Percent of screen"
+msgstr "画面に対する割合"
+
+msgid "Width"
+msgstr "幅"
+
+msgid "Height"
+msgstr "高さ"
+
+msgid "Position the window"
+msgstr "ウィンドウを配置する"
+
+msgid "Off: the window only changes size and stays where it is"
+msgstr "オフ: ウィンドウはサイズのみ変わり、位置はそのままです"
+
+msgid "Put the window"
+msgstr "ウィンドウの位置"
+
+msgid "Shortcut"
+msgstr "ショートカット"
+
+msgid "Click here, then press the keys you want"
+msgstr "ここをクリックして、使いたいキーを押してください"
+
+msgid "Remove this preset"
+msgstr "このプリセットを削除"
+
+msgid "Drag to reorder"
+msgstr "ドラッグして並べ替え"
+
+msgid "Already used by the preset “%s”"
+msgstr "プリセット「%s」で既に使われています"
+
+msgid "Already used by GNOME for “%s”"
+msgstr "GNOME の「%s」で既に使われています"
+
+msgid "Already used by your own GNOME shortcut “%s”"
+msgstr "独自の GNOME ショートカット「%s」で既に使われています"
+
+msgid "New shortcut"
+msgstr "新しいショートカット"
+
+msgid "Press the keys you want to use"
+msgstr "使いたいキーを押してください"
+
+msgid "Backspace removes the shortcut, Escape cancels"
+msgstr "Backspace でショートカットを削除、Escape でキャンセル"
+
+msgid "Shortcuts already used by the system cannot be assigned here."
+msgstr "システムが既に使用しているショートカットはここでは割り当てられません。"
+
+msgid "Try a different combination."
+msgstr "別の組み合わせを試してください。"

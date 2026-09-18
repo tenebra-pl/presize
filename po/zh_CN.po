@@ -1,0 +1,125 @@
+# Simplified Chinese translation of Presize.
+# Copyright (C) 2026 Jacek Tobiasz
+# This file is distributed under the same license as the presize package.
+msgid ""
+msgstr ""
+"Project-Id-Version: presize\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Top left"
+msgstr "左上"
+
+msgid "Top"
+msgstr "上"
+
+msgid "Top right"
+msgstr "右上"
+
+msgid "Left"
+msgstr "左"
+
+msgid "Center"
+msgstr "居中"
+
+msgid "Right"
+msgstr "右"
+
+msgid "Bottom left"
+msgstr "左下"
+
+msgid "Bottom"
+msgstr "下"
+
+msgid "Bottom right"
+msgstr "右下"
+
+msgid "Where it is now"
+msgstr "保持当前位置"
+
+msgid "Add a preset"
+msgstr "添加预设"
+
+msgid "Presets"
+msgstr "预设"
+
+msgid "Press a preset’s shortcut and the active window takes that size and place. Click a preset to change it."
+msgstr "按下预设的快捷键，活动窗口就会变为该大小和位置。点击预设可进行修改。"
+
+msgid "No shortcut"
+msgstr "无快捷键"
+
+msgid "Unnamed preset"
+msgstr "未命名预设"
+
+msgid "% of screen"
+msgstr "% 屏幕"
+
+msgid "px"
+msgstr "px"
+
+msgid "Name"
+msgstr "名称"
+
+msgid "Measure size in"
+msgstr "大小单位"
+
+msgid "Pixels"
+msgstr "像素"
+
+msgid "Percent of screen"
+msgstr "屏幕百分比"
+
+msgid "Width"
+msgstr "宽度"
+
+msgid "Height"
+msgstr "高度"
+
+msgid "Position the window"
+msgstr "定位窗口"
+
+msgid "Off: the window only changes size and stays where it is"
+msgstr "关闭：窗口只改变大小，位置不变"
+
+msgid "Put the window"
+msgstr "放置窗口"
+
+msgid "Shortcut"
+msgstr "快捷键"
+
+msgid "Click here, then press the keys you want"
+msgstr "点击此处，然后按下想用的按键"
+
+msgid "Remove this preset"
+msgstr "删除此预设"
+
+msgid "Drag to reorder"
+msgstr "拖动以重新排序"
+
+msgid "Already used by the preset “%s”"
+msgstr "已被预设“%s”使用"
+
+msgid "Already used by GNOME for “%s”"
+msgstr "已被 GNOME 用于“%s”"
+
+msgid "Already used by your own GNOME shortcut “%s”"
+msgstr "已被您自定义的 GNOME 快捷键“%s”使用"
+
+msgid "New shortcut"
+msgstr "新快捷键"
+
+msgid "Press the keys you want to use"
+msgstr "按下想要使用的按键"
+
+msgid "Backspace removes the shortcut, Escape cancels"
+msgstr "Backspace 清除快捷键，Esc 取消"
+
+msgid "Shortcuts already used by the system cannot be assigned here."
+msgstr "系统已占用的快捷键无法在此分配。"
+
+msgid "Try a different combination."
+msgstr "请尝试其他组合。"

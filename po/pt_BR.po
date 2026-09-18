@@ -1,0 +1,125 @@
+# Brazilian Portuguese translation of Presize.
+# Copyright (C) 2026 Jacek Tobiasz
+# This file is distributed under the same license as the presize package.
+msgid ""
+msgstr ""
+"Project-Id-Version: presize\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Top left"
+msgstr "Superior esquerdo"
+
+msgid "Top"
+msgstr "Em cima"
+
+msgid "Top right"
+msgstr "Superior direito"
+
+msgid "Left"
+msgstr "Esquerda"
+
+msgid "Center"
+msgstr "Centro"
+
+msgid "Right"
+msgstr "Direita"
+
+msgid "Bottom left"
+msgstr "Inferior esquerdo"
+
+msgid "Bottom"
+msgstr "Embaixo"
+
+msgid "Bottom right"
+msgstr "Inferior direito"
+
+msgid "Where it is now"
+msgstr "Onde está agora"
+
+msgid "Add a preset"
+msgstr "Adicionar predefinição"
+
+msgid "Presets"
+msgstr "Predefinições"
+
+msgid "Press a preset’s shortcut and the active window takes that size and place. Click a preset to change it."
+msgstr "Pressione o atalho de uma predefinição e a janela ativa assume esse tamanho e posição. Clique em uma predefinição para alterá-la."
+
+msgid "No shortcut"
+msgstr "Sem atalho"
+
+msgid "Unnamed preset"
+msgstr "Predefinição sem nome"
+
+msgid "% of screen"
+msgstr "% da tela"
+
+msgid "px"
+msgstr "px"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Measure size in"
+msgstr "Medir o tamanho em"
+
+msgid "Pixels"
+msgstr "Pixels"
+
+msgid "Percent of screen"
+msgstr "Porcentagem da tela"
+
+msgid "Width"
+msgstr "Largura"
+
+msgid "Height"
+msgstr "Altura"
+
+msgid "Position the window"
+msgstr "Posicionar a janela"
+
+msgid "Off: the window only changes size and stays where it is"
+msgstr "Desligado: a janela só muda de tamanho e fica onde está"
+
+msgid "Put the window"
+msgstr "Colocar a janela"
+
+msgid "Shortcut"
+msgstr "Atalho"
+
+msgid "Click here, then press the keys you want"
+msgstr "Clique aqui e pressione as teclas desejadas"
+
+msgid "Remove this preset"
+msgstr "Remover esta predefinição"
+
+msgid "Drag to reorder"
+msgstr "Arraste para reordenar"
+
+msgid "Already used by the preset “%s”"
+msgstr "Já usado pela predefinição “%s”"
+
+msgid "Already used by GNOME for “%s”"
+msgstr "Já usado pelo GNOME para “%s”"
+
+msgid "Already used by your own GNOME shortcut “%s”"
+msgstr "Já usado pelo seu próprio atalho do GNOME “%s”"
+
+msgid "New shortcut"
+msgstr "Novo atalho"
+
+msgid "Press the keys you want to use"
+msgstr "Pressione as teclas que deseja usar"
+
+msgid "Backspace removes the shortcut, Escape cancels"
+msgstr "Backspace remove o atalho, Esc cancela"
+
+msgid "Shortcuts already used by the system cannot be assigned here."
+msgstr "Atalhos já usados pelo sistema não podem ser atribuídos aqui."
+
+msgid "Try a different combination."
+msgstr "Tente outra combinação."

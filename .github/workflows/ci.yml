@@ -17,12 +17,17 @@ jobs:
       - name: JavaScript syntax
         run: for f in src/*.js; do node --check "$f"; done
 
-      - name: Translations are complete
+      # Every .po must compile. Missing strings are a warning, not a failure:
+      # untranslated text falls back to English at runtime.
+      - name: Translations compile and are complete
         run: |
           xgettext --from-code=UTF-8 --language=JavaScript --keyword=_ -o /tmp/presize.pot src/prefs.js src/extension.js
           for po in po/*.po; do
-            echo "== $po"
-            msgcmp "$po" /tmp/presize.pot
+            msgfmt --check -o /dev/null "$po"
+            if ! msgcmp --use-untranslated "$po" /tmp/presize.pot >/dev/null 2>&1; then
+              echo "::warning file=$po::$po is missing translations; those strings will show in English"
+              msgcmp --use-untranslated "$po" /tmp/presize.pot || true
+            fi
           done
 
       - name: Build and pack

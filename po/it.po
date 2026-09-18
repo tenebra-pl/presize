@@ -1,0 +1,125 @@
+# Italian translation of Presize.
+# Copyright (C) 2026 Jacek Tobiasz
+# This file is distributed under the same license as the presize package.
+msgid ""
+msgstr ""
+"Project-Id-Version: presize\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Top left"
+msgstr "In alto a sinistra"
+
+msgid "Top"
+msgstr "In alto"
+
+msgid "Top right"
+msgstr "In alto a destra"
+
+msgid "Left"
+msgstr "A sinistra"
+
+msgid "Center"
+msgstr "Centro"
+
+msgid "Right"
+msgstr "A destra"
+
+msgid "Bottom left"
+msgstr "In basso a sinistra"
+
+msgid "Bottom"
+msgstr "In basso"
+
+msgid "Bottom right"
+msgstr "In basso a destra"
+
+msgid "Where it is now"
+msgstr "Dove si trova ora"
+
+msgid "Add a preset"
+msgstr "Aggiungi una preimpostazione"
+
+msgid "Presets"
+msgstr "Preimpostazioni"
+
+msgid "Press a preset’s shortcut and the active window takes that size and place. Click a preset to change it."
+msgstr "Premi la scorciatoia di una preimpostazione e la finestra attiva assume quella dimensione e posizione. Fai clic su una preimpostazione per modificarla."
+
+msgid "No shortcut"
+msgstr "Nessuna scorciatoia"
+
+msgid "Unnamed preset"
+msgstr "Preimpostazione senza nome"
+
+msgid "% of screen"
+msgstr "% dello schermo"
+
+msgid "px"
+msgstr "px"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Measure size in"
+msgstr "Misura la dimensione in"
+
+msgid "Pixels"
+msgstr "Pixel"
+
+msgid "Percent of screen"
+msgstr "Percentuale dello schermo"
+
+msgid "Width"
+msgstr "Larghezza"
+
+msgid "Height"
+msgstr "Altezza"
+
+msgid "Position the window"
+msgstr "Posiziona la finestra"
+
+msgid "Off: the window only changes size and stays where it is"
+msgstr "Disattivato: la finestra cambia solo dimensione e resta dov’è"
+
+msgid "Put the window"
+msgstr "Metti la finestra"
+
+msgid "Shortcut"
+msgstr "Scorciatoia"
+
+msgid "Click here, then press the keys you want"
+msgstr "Fai clic qui, poi premi i tasti che vuoi"
+
+msgid "Remove this preset"
+msgstr "Rimuovi questa preimpostazione"
+
+msgid "Drag to reorder"
+msgstr "Trascina per riordinare"
+
+msgid "Already used by the preset “%s”"
+msgstr "Già usata dalla preimpostazione «%s»"
+
+msgid "Already used by GNOME for “%s”"
+msgstr "Già usata da GNOME per «%s»"
+
+msgid "Already used by your own GNOME shortcut “%s”"
+msgstr "Già usata dalla tua scorciatoia GNOME «%s»"
+
+msgid "New shortcut"
+msgstr "Nuova scorciatoia"
+
+msgid "Press the keys you want to use"
+msgstr "Premi i tasti che vuoi usare"
+
+msgid "Backspace removes the shortcut, Escape cancels"
+msgstr "Backspace rimuove la scorciatoia, Esc annulla"
+
+msgid "Shortcuts already used by the system cannot be assigned here."
+msgstr "Le scorciatoie già usate dal sistema non possono essere assegnate qui."
+
+msgid "Try a different combination."
+msgstr "Prova un’altra combinazione."
