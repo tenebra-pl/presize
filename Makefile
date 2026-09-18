@@ -1,4 +1,4 @@
-UUID      := presize@tobiasz
+UUID      := presize@tenebra
 DOMAIN    := presize
 BUILD     := build
 DEST      := $(HOME)/.local/share/gnome-shell/extensions/$(UUID)

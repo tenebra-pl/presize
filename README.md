@@ -28,10 +28,10 @@ make install
 Then log out and back in (Wayland) or restart the shell (X11), and enable:
 
 ```bash
-gnome-extensions enable presize@tobiasz
+gnome-extensions enable presize@tenebra
 ```
 
-Open the settings from the Extensions app or with `gnome-extensions prefs presize@tobiasz`.
+Open the settings from the Extensions app or with `gnome-extensions prefs presize@tenebra`.
 
 ## Development
 
