@@ -6,6 +6,8 @@ MSGFMT    ?= msgfmt
 XGETTEXT  ?= xgettext
 SCHEMAS   ?= glib-compile-schemas
 LANGS     := $(patsubst po/%.po,%,$(wildcard po/*.po))
+# Human-readable version shown in the Extensions app; from the git tag unless given.
+VERSION   ?= $(shell git describe --tags --always --dirty 2>/dev/null | sed 's/^v//' || echo dev)
 
 .PHONY: all build install uninstall pack pot check clean
 
@@ -15,6 +17,7 @@ build:
 	rm -rf $(BUILD)
 	mkdir -p $(BUILD)
 	cp src/*.js src/metadata.json $(BUILD)/
+	sed -i 's/"version-name": "[^"]*"/"version-name": "$(VERSION)"/' $(BUILD)/metadata.json
 	cp -r src/schemas $(BUILD)/schemas
 	$(SCHEMAS) $(BUILD)/schemas
 	for l in $(LANGS); do \

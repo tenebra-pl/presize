@@ -52,6 +52,26 @@ pkill -f "gjs -m /usr/share/gnome-shell/org.gnome.Shell.Extensions"
 
 Requires GNOME Shell 48 or newer.
 
+### Releasing a version
+
+Versions are git tags. The `version-name` field in `metadata.json` is filled in at
+build time from the tag; the numeric `version` field is managed by
+extensions.gnome.org and is not edited by hand.
+
+```bash
+git tag -a v1.0.0 -m "Presize 1.0.0"
+git push origin v1.0.0
+```
+
+The Release workflow then builds `presize@tenebra.shell-extension.zip`, creates a
+GitHub release with generated notes and attaches the zip. The last step is manual,
+as extensions.gnome.org has no upload API: download the zip from the release and
+submit it at <https://extensions.gnome.org/upload/>. Every submission is reviewed
+by a person, usually within a few days.
+
+The CI workflow runs on every push: JavaScript syntax, translation completeness
+against the source strings, and a full build.
+
 ### New GNOME releases
 
 GNOME Shell only loads extensions whose `metadata.json` lists the running shell

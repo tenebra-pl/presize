@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install build tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq gettext libglib2.0-bin
+
+      - name: JavaScript syntax
+        run: for f in src/*.js; do node --check "$f"; done
+
+      - name: Translations are complete
+        run: |
+          xgettext --from-code=UTF-8 --language=JavaScript --keyword=_ -o /tmp/presize.pot src/prefs.js src/extension.js
+          for po in po/*.po; do
+            echo "== $po"
+            msgcmp "$po" /tmp/presize.pot
+          done
+
+      - name: Build and pack
+        run: make pack VERSION=ci
+
+      - name: Zip contents
+        run: unzip -l presize@tenebra.shell-extension.zip
