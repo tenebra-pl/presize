@@ -95,7 +95,7 @@ number.
 
 The interface follows the language of your GNOME session automatically. Presize
 ships in English, Polish, German, Spanish, French, Italian, Brazilian Portuguese,
-Russian, Ukrainian, Simplified Chinese, Turkish, Czech, Dutch and Japanese. Any
+European Portuguese, Russian, Ukrainian, Simplified Chinese, Turkish, Czech, Dutch and Japanese. Any
 string without a translation falls back to English.
 
 Most of these translations were drafted by the author with machine help and have
