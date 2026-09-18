@@ -223,8 +223,8 @@ export default class PresizePrefs extends ExtensionPreferences {
         // Remove
         const removeButton = new Gtk.Button({
             label: _('Remove this preset'),
-            halign: Gtk.Align.END,
-            margin_top: 6, margin_bottom: 6,
+            halign: Gtk.Align.CENTER,
+            margin_top: 12, margin_bottom: 12,
             css_classes: ['destructive-action'],
         });
         removeButton.connect('clicked', () => {
@@ -232,9 +232,7 @@ export default class PresizePrefs extends ExtensionPreferences {
             this._save();
             this._rebuild(window);
         });
-        const removeRow = new Adw.ActionRow();
-        removeRow.add_suffix(removeButton);
-        row.add_row(removeRow);
+        row.add_row(removeButton);
 
         refreshHeader();
         return row;
