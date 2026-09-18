@@ -7,6 +7,8 @@ Just "make this window 1600 × 1000 and center it".
 Designed so that anyone can set it up: every preset is a name, a size, a place on the
 screen and a shortcut, all edited in a normal GNOME preferences window.
 
+![Presize settings window with four presets](docs/settings.png)
+
 ## Features
 
 - Any number of presets, each with its own shortcut.
