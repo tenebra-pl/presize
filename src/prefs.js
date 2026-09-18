@@ -170,6 +170,7 @@ export default class PresizePrefs extends ExtensionPreferences {
             buttons.set(pos, button);
         });
         positionRow.add_suffix(grid);
+        row.add_row(keepRow);
         row.add_row(positionRow);
 
         keepRow.connect('notify::active', () => {
@@ -187,7 +188,6 @@ export default class PresizePrefs extends ExtensionPreferences {
             refreshHeader();
         });
         grid.sensitive = !keepRow.active;
-        row.add_row(keepRow);
 
         // Shortcut
         const shortcutRow = new Adw.ActionRow({
