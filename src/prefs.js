@@ -4,18 +4,21 @@ import Gtk from 'gi://Gtk';
 import {ExtensionPreferences, gettext as _} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 import {POSITIONS, newPreset, loadPresets, savePresets} from './presets.js';
 
-const POSITION_LABELS = {
-    'top-left': _('Top left'),
-    'top': _('Top'),
-    'top-right': _('Top right'),
-    'left': _('Left'),
-    'center': _('Center'),
-    'right': _('Right'),
-    'bottom-left': _('Bottom left'),
-    'bottom': _('Bottom'),
-    'bottom-right': _('Bottom right'),
-    'keep': _('Where it is now'),
-};
+// Built lazily: gettext works only once the extension object exists.
+function positionLabels() {
+    return {
+        'top-left': _('Top left'),
+        'top': _('Top'),
+        'top-right': _('Top right'),
+        'left': _('Left'),
+        'center': _('Center'),
+        'right': _('Right'),
+        'bottom-left': _('Bottom left'),
+        'bottom': _('Bottom'),
+        'bottom-right': _('Bottom right'),
+        'keep': _('Where it is now'),
+    };
+}
 
 const POSITION_ARROWS = {
     'top-left': '↖', 'top': '↑', 'top-right': '↗',
@@ -26,6 +29,7 @@ const POSITION_ARROWS = {
 export default class PresizePrefs extends ExtensionPreferences {
     fillPreferencesWindow(window) {
         this._settings = this.getSettings();
+        this._labels = positionLabels();
         this._presets = loadPresets(this._settings);
         this._rows = [];
 
@@ -77,7 +81,7 @@ export default class PresizePrefs extends ExtensionPreferences {
         const refreshHeader = () => {
             row.title = preset.name || _('Unnamed preset');
             const unit = preset.unit === '%' ? _('% of screen') : _('px');
-            row.subtitle = `${preset.width} × ${preset.height} ${unit}  ·  ${POSITION_LABELS[preset.position] ?? preset.position}`;
+            row.subtitle = `${preset.width} × ${preset.height} ${unit}  ·  ${this._labels[preset.position] ?? preset.position}`;
             shortcutLabel.accelerator = preset.shortcut;
         };
 
@@ -136,14 +140,14 @@ export default class PresizePrefs extends ExtensionPreferences {
             subtitle: _('Only change its size'),
             active: preset.position === 'keep',
         });
-        const positionRow = new Adw.ActionRow({title: _('Put the window'), subtitle: POSITION_LABELS[preset.position]});
+        const positionRow = new Adw.ActionRow({title: _('Put the window'), subtitle: this._labels[preset.position]});
         const grid = new Gtk.Grid({row_spacing: 4, column_spacing: 4, valign: Gtk.Align.CENTER, margin_top: 6, margin_bottom: 6});
         const buttons = new Map();
         let first = null;
         POSITIONS.forEach((pos, i) => {
             const button = new Gtk.ToggleButton({
                 label: POSITION_ARROWS[pos],
-                tooltip_text: POSITION_LABELS[pos],
+                tooltip_text: this._labels[pos],
                 width_request: 36,
                 height_request: 32,
                 css_classes: ['flat'],
@@ -158,7 +162,7 @@ export default class PresizePrefs extends ExtensionPreferences {
                     return;
                 preset.position = pos;
                 keepRow.active = false;
-                positionRow.subtitle = POSITION_LABELS[pos];
+                positionRow.subtitle = this._labels[pos];
                 this._save();
                 refreshHeader();
             });
@@ -178,7 +182,7 @@ export default class PresizePrefs extends ExtensionPreferences {
                 buttons.get('center').active = true;
             }
             grid.sensitive = !keepRow.active;
-            positionRow.subtitle = POSITION_LABELS[preset.position];
+            positionRow.subtitle = this._labels[preset.position];
             this._save();
             refreshHeader();
         });
