@@ -108,3 +108,15 @@ msgstr "Backspace usuwa skrót, Escape anuluje"
 
 msgid "Drag to reorder"
 msgstr "Przeciągnij, aby zmienić kolejność"
+
+msgid "Already used by the preset “%s”"
+msgstr "Tego skrótu używa już ustawienie „%s”"
+
+msgid "Already used by GNOME for “%s”"
+msgstr "Tego skrótu używa już GNOME: „%s”"
+
+msgid "Already used by your own GNOME shortcut “%s”"
+msgstr "Tego skrótu używa już Twój własny skrót GNOME „%s”"
+
+msgid "Try a different combination."
+msgstr "Wybierz inną kombinację."

@@ -14,6 +14,7 @@ screen and a shortcut, all edited in a normal GNOME preferences window.
 - Place the window in the center, at an edge, in a corner, or leave it where it is.
 - Works on Wayland and X11, on any monitor the window is on.
 - Un-maximizes and leaves fullscreen before resizing.
+- Warns when a shortcut is already taken by GNOME or another preset, and never touches GNOME's own shortcuts.
 
 Default presets: Ctrl+F1 to Ctrl+F4 for four sizes, all centered.
 

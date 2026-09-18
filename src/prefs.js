@@ -1,5 +1,6 @@
 import Adw from 'gi://Adw';
 import Gdk from 'gi://Gdk';
+import Gio from 'gi://Gio';
 import GObject from 'gi://GObject';
 import Gtk from 'gi://Gtk';
 import {ExtensionPreferences, gettext as _} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
@@ -20,6 +21,15 @@ function positionLabels() {
         'keep': _('Where it is now'),
     };
 }
+
+// GNOME settings that hold keyboard shortcuts; checked for conflicts before saving one.
+const GNOME_SHORTCUT_SCHEMAS = [
+    'org.gnome.desktop.wm.keybindings',
+    'org.gnome.mutter.keybindings',
+    'org.gnome.mutter.wayland.keybindings',
+    'org.gnome.shell.keybindings',
+    'org.gnome.settings-daemon.plugins.media-keys',
+];
 
 const POSITION_ARROWS = {
     'top-left': '↖', 'top': '↑', 'top-right': '↗',
@@ -201,7 +211,7 @@ export default class PresizePrefs extends ExtensionPreferences {
         shortcutInner.accelerator = preset.shortcut;
         shortcutRow.add_suffix(shortcutInner);
         shortcutRow.connect('activated', () => {
-            this._captureShortcut(window, accel => {
+            this._captureShortcut(window, preset, accel => {
                 preset.shortcut = accel;
                 shortcutInner.accelerator = accel;
                 this._save();
@@ -271,13 +281,52 @@ export default class PresizePrefs extends ExtensionPreferences {
         });
     }
 
-    _captureShortcut(window, onDone) {
+    // Returns a human-readable owner of the shortcut, or null when it is free.
+    _findConflict(accel, currentPreset) {
+        const [ok, keyval, mods] = Gtk.accelerator_parse(accel);
+        if (!ok)
+            return null;
+        const same = other => {
+            const [ok2, k2, m2] = Gtk.accelerator_parse(other);
+            return ok2 && k2 === keyval && m2 === mods;
+        };
+
+        for (const p of this._presets) {
+            if (p !== currentPreset && p.shortcut && same(p.shortcut))
+                return _('Already used by the preset “%s”').replace('%s', p.name || _('Unnamed preset'));
+        }
+
+        const source = Gio.SettingsSchemaSource.get_default();
+        for (const id of GNOME_SHORTCUT_SCHEMAS) {
+            const schema = source.lookup(id, true);
+            if (!schema)
+                continue;
+            const settings = new Gio.Settings({schema_id: id});
+            for (const name of schema.list_keys()) {
+                const key = schema.get_key(name);
+                const type = key.get_value_type().dup_string();
+                const values = type === 'as' ? settings.get_strv(name) : type === 's' ? [settings.get_string(name)] : [];
+                if (values.some(v => v && same(v)))
+                    return _('Already used by GNOME for “%s”').replace('%s', key.get_summary() ?? name);
+            }
+        }
+
+        const mediaKeys = new Gio.Settings({schema_id: 'org.gnome.settings-daemon.plugins.media-keys'});
+        for (const path of mediaKeys.get_strv('custom-keybindings')) {
+            const custom = new Gio.Settings({schema_id: 'org.gnome.settings-daemon.plugins.media-keys.custom-keybinding', path});
+            if (same(custom.get_string('binding')))
+                return _('Already used by your own GNOME shortcut “%s”').replace('%s', custom.get_string('name'));
+        }
+        return null;
+    }
+
+    _captureShortcut(window, preset, onDone) {
         const dialog = new Adw.Window({
             transient_for: window,
             modal: true,
             title: _('New shortcut'),
             default_width: 380,
-            default_height: 160,
+            default_height: 200,
         });
         const box = new Gtk.Box({
             orientation: Gtk.Orientation.VERTICAL,
@@ -287,6 +336,8 @@ export default class PresizePrefs extends ExtensionPreferences {
         });
         box.append(new Gtk.Label({label: _('Press the keys you want to use'), css_classes: ['title-2']}));
         box.append(new Gtk.Label({label: _('Backspace removes the shortcut, Escape cancels'), css_classes: ['dim-label']}));
+        const conflictLabel = new Gtk.Label({wrap: true, justify: Gtk.Justification.CENTER, css_classes: ['error'], visible: false});
+        box.append(conflictLabel);
         dialog.set_content(box);
 
         const controller = new Gtk.EventControllerKey();
@@ -303,7 +354,14 @@ export default class PresizePrefs extends ExtensionPreferences {
             }
             if (!Gtk.accelerator_valid(keyval, mask))
                 return Gdk.EVENT_STOP; // lone modifier or unmodified plain key: keep waiting
-            onDone(Gtk.accelerator_name(Gdk.keyval_to_lower(keyval), mask));
+            const accel = Gtk.accelerator_name(Gdk.keyval_to_lower(keyval), mask);
+            const conflict = this._findConflict(accel, preset);
+            if (conflict) {
+                conflictLabel.label = `${conflict}. ${_('Try a different combination.')}`;
+                conflictLabel.visible = true;
+                return Gdk.EVENT_STOP;
+            }
+            onDone(accel);
             dialog.close();
             return Gdk.EVENT_STOP;
         });

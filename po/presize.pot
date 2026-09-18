@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: presize\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-18 18:43+0200\n"
+"POT-Creation-Date: 2026-09-18 19:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,136 +17,155 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/prefs.js:11
+#: src/prefs.js:12
 msgid "Top left"
 msgstr ""
 
-#: src/prefs.js:12
+#: src/prefs.js:13
 msgid "Top"
 msgstr ""
 
-#: src/prefs.js:13
+#: src/prefs.js:14
 msgid "Top right"
 msgstr ""
 
-#: src/prefs.js:14
+#: src/prefs.js:15
 msgid "Left"
 msgstr ""
 
-#: src/prefs.js:15
+#: src/prefs.js:16
 msgid "Center"
 msgstr ""
 
-#: src/prefs.js:16
+#: src/prefs.js:17
 msgid "Right"
 msgstr ""
 
-#: src/prefs.js:17
+#: src/prefs.js:18
 msgid "Bottom left"
 msgstr ""
 
-#: src/prefs.js:18
+#: src/prefs.js:19
 msgid "Bottom"
 msgstr ""
 
-#: src/prefs.js:19
+#: src/prefs.js:20
 msgid "Bottom right"
 msgstr ""
 
-#: src/prefs.js:20
+#: src/prefs.js:21
 msgid "Where it is now"
 msgstr ""
 
-#: src/prefs.js:42
+#: src/prefs.js:52
 msgid "Add a preset"
 msgstr ""
 
-#: src/prefs.js:53
+#: src/prefs.js:63
 msgid "Presets"
 msgstr ""
 
-#: src/prefs.js:54
+#: src/prefs.js:64
 msgid ""
 "Press a preset’s shortcut and the active window takes that size and place. "
 "Click a preset to change it."
 msgstr ""
 
-#: src/prefs.js:80 src/prefs.js:200
+#: src/prefs.js:90 src/prefs.js:210
 msgid "No shortcut"
 msgstr ""
 
-#: src/prefs.js:84
+#: src/prefs.js:94 src/prefs.js:296
 msgid "Unnamed preset"
 msgstr ""
 
-#: src/prefs.js:85
+#: src/prefs.js:95
 msgid "% of screen"
 msgstr ""
 
-#: src/prefs.js:85
+#: src/prefs.js:95
 msgid "px"
 msgstr ""
 
-#: src/prefs.js:91
+#: src/prefs.js:101
 msgid "Name"
 msgstr ""
 
-#: src/prefs.js:101
+#: src/prefs.js:111
 msgid "Measure size in"
 msgstr ""
 
-#: src/prefs.js:102
+#: src/prefs.js:112
 msgid "Pixels"
 msgstr ""
 
-#: src/prefs.js:102
+#: src/prefs.js:112
 msgid "Percent of screen"
 msgstr ""
 
-#: src/prefs.js:108
+#: src/prefs.js:118
 msgid "Width"
 msgstr ""
 
-#: src/prefs.js:109
+#: src/prefs.js:119
 msgid "Height"
 msgstr ""
 
-#: src/prefs.js:141
+#: src/prefs.js:151
 msgid "Leave the window where it is"
 msgstr ""
 
-#: src/prefs.js:142
+#: src/prefs.js:152
 msgid "Only change its size"
 msgstr ""
 
-#: src/prefs.js:145
+#: src/prefs.js:155
 msgid "Put the window"
 msgstr ""
 
-#: src/prefs.js:196
+#: src/prefs.js:206
 msgid "Shortcut"
 msgstr ""
 
-#: src/prefs.js:197
+#: src/prefs.js:207
 msgid "Click here, then press the keys you want"
 msgstr ""
 
-#: src/prefs.js:215
+#: src/prefs.js:225
 msgid "Remove this preset"
 msgstr ""
 
-#: src/prefs.js:237
+#: src/prefs.js:247
 msgid "Drag to reorder"
 msgstr ""
 
-#: src/prefs.js:278
+#: src/prefs.js:296
+#, javascript-format
+msgid "Already used by the preset “%s”"
+msgstr ""
+
+#: src/prefs.js:310
+#, javascript-format
+msgid "Already used by GNOME for “%s”"
+msgstr ""
+
+#: src/prefs.js:318
+#, javascript-format
+msgid "Already used by your own GNOME shortcut “%s”"
+msgstr ""
+
+#: src/prefs.js:327
 msgid "New shortcut"
 msgstr ""
 
-#: src/prefs.js:288
+#: src/prefs.js:337
 msgid "Press the keys you want to use"
 msgstr ""
 
-#: src/prefs.js:289
+#: src/prefs.js:338
 msgid "Backspace removes the shortcut, Escape cancels"
+msgstr ""
+
+#: src/prefs.js:360
+msgid "Try a different combination."
 msgstr ""
