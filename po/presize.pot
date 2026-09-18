@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: presize\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-18 19:03+0200\n"
+"POT-Creation-Date: 2026-09-18 19:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -167,7 +167,7 @@ msgid "Backspace removes the shortcut, Escape cancels"
 msgstr ""
 
 #: src/prefs.js:340
-msgid "If nothing happens, GNOME already uses that combination."
+msgid "Shortcuts already used by the system cannot be assigned here."
 msgstr ""
 
 #: src/prefs.js:364
