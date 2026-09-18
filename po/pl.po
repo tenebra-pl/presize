@@ -1,0 +1,107 @@
+# Polish translation of Presize.
+# Copyright (C) 2026 Jacek Tobiasz
+# This file is distributed under the same license as the presize package.
+msgid ""
+msgstr ""
+"Project-Id-Version: presize\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Top left"
+msgstr "Lewy górny róg"
+
+msgid "Top"
+msgstr "Góra"
+
+msgid "Top right"
+msgstr "Prawy górny róg"
+
+msgid "Left"
+msgstr "Lewo"
+
+msgid "Center"
+msgstr "Środek"
+
+msgid "Right"
+msgstr "Prawo"
+
+msgid "Bottom left"
+msgstr "Lewy dolny róg"
+
+msgid "Bottom"
+msgstr "Dół"
+
+msgid "Bottom right"
+msgstr "Prawy dolny róg"
+
+msgid "Where it is now"
+msgstr "Tam, gdzie jest"
+
+msgid "Add a preset"
+msgstr "Dodaj ustawienie"
+
+msgid "Presets"
+msgstr "Ustawienia okien"
+
+msgid "Press a preset’s shortcut and the active window takes that size and place. Click a preset to change it."
+msgstr "Wciśnij skrót, a aktywne okno przyjmie zapisany rozmiar i miejsce. Kliknij pozycję na liście, aby ją zmienić."
+
+msgid "No shortcut"
+msgstr "Brak skrótu"
+
+msgid "Unnamed preset"
+msgstr "Bez nazwy"
+
+msgid "% of screen"
+msgstr "% ekranu"
+
+msgid "px"
+msgstr "px"
+
+msgid "Name"
+msgstr "Nazwa"
+
+msgid "Measure size in"
+msgstr "Rozmiar podany w"
+
+msgid "Pixels"
+msgstr "Pikselach"
+
+msgid "Percent of screen"
+msgstr "Procentach ekranu"
+
+msgid "Width"
+msgstr "Szerokość"
+
+msgid "Height"
+msgstr "Wysokość"
+
+msgid "Leave the window where it is"
+msgstr "Zostaw okno tam, gdzie jest"
+
+msgid "Only change its size"
+msgstr "Zmień tylko rozmiar"
+
+msgid "Put the window"
+msgstr "Umieść okno"
+
+msgid "Shortcut"
+msgstr "Skrót klawiszowy"
+
+msgid "Click here, then press the keys you want"
+msgstr "Kliknij tutaj i wciśnij wybrane klawisze"
+
+msgid "Remove this preset"
+msgstr "Usuń to ustawienie"
+
+msgid "New shortcut"
+msgstr "Nowy skrót"
+
+msgid "Press the keys you want to use"
+msgstr "Wciśnij klawisze, których chcesz używać"
+
+msgid "Backspace removes the shortcut, Escape cancels"
+msgstr "Backspace usuwa skrót, Escape anuluje"

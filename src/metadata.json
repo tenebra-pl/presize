@@ -1,0 +1,10 @@
+{
+  "uuid": "presize@tobiasz",
+  "name": "Presize",
+  "description": "Resize the focused window to a preset size and place it on screen with a keyboard shortcut. Any number of presets, each with its own size, position and shortcut.",
+  "shell-version": ["48", "49", "50"],
+  "settings-schema": "org.gnome.shell.extensions.presize",
+  "gettext-domain": "presize",
+  "url": "https://github.com/jacektobiasz/presize",
+  "version": 1
+}
