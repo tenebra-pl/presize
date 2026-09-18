@@ -35,3 +35,9 @@ jobs:
 
       - name: Zip contents
         run: unzip -l presize@tenebra.shell-extension.zip
+
+      # The same static checks extensions.gnome.org recommends before uploading.
+      - name: Shexli review-guideline check
+        run: |
+          pip install -q shexli
+          shexli presize@tenebra.shell-extension.zip

@@ -34,10 +34,11 @@ install: build
 uninstall:
 	rm -rf $(DEST)
 
-# Zip ready for upload to extensions.gnome.org.
+# Zip ready for upload to extensions.gnome.org. The compiled schema stays out:
+# GNOME 45+ compiles it on install and the reviewers flag it as an unnecessary file.
 pack: build
 	rm -f $(UUID).shell-extension.zip
-	cd $(BUILD) && zip -r ../$(UUID).shell-extension.zip .
+	cd $(BUILD) && zip -r ../$(UUID).shell-extension.zip . -x schemas/gschemas.compiled
 
 pot:
 	$(XGETTEXT) --from-code=UTF-8 --language=JavaScript --keyword=_ \
