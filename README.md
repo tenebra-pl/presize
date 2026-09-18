@@ -52,6 +52,25 @@ pkill -f "gjs -m /usr/share/gnome-shell/org.gnome.Shell.Extensions"
 
 Requires GNOME Shell 48 or newer.
 
+### New GNOME releases
+
+GNOME Shell only loads extensions whose `metadata.json` lists the running shell
+version in `shell-version`. GNOME ships a new major version every March and
+September; Fedora and Ubuntu pick it up roughly a month later. After each
+upgrade:
+
+1. Run `make check` on the host. It prints the shell version, whether it is
+   listed in `metadata.json`, the extension state and any errors from the
+   journal.
+2. If the version is missing, add it to `shell-version`, `make install`, log out
+   and back in, and try every preset and the settings window.
+3. Bump `version` in `metadata.json` and upload a new `make pack` zip to
+   extensions.gnome.org. Users get the update through the Extensions app.
+
+Presize touches only stable public APIs (keyboard grabs, the focused window,
+work areas, libadwaita), so most releases will need nothing more than the new
+number.
+
 ## License
 
 GPL-2.0-or-later. See [LICENSE](LICENSE).
