@@ -120,3 +120,6 @@ msgstr "Tego skrótu używa już Twój własny skrót GNOME „%s”"
 
 msgid "Try a different combination."
 msgstr "Wybierz inną kombinację."
+
+msgid "If nothing happens, GNOME already uses that combination."
+msgstr "Jeśli nic się nie dzieje, GNOME już używa tej kombinacji."

@@ -326,7 +326,7 @@ export default class PresizePrefs extends ExtensionPreferences {
             modal: true,
             title: _('New shortcut'),
             default_width: 380,
-            default_height: 200,
+            default_height: 220,
         });
         const box = new Gtk.Box({
             orientation: Gtk.Orientation.VERTICAL,
@@ -336,6 +336,10 @@ export default class PresizePrefs extends ExtensionPreferences {
         });
         box.append(new Gtk.Label({label: _('Press the keys you want to use'), css_classes: ['title-2']}));
         box.append(new Gtk.Label({label: _('Backspace removes the shortcut, Escape cancels'), css_classes: ['dim-label']}));
+        box.append(new Gtk.Label({
+            label: _('If nothing happens, GNOME already uses that combination.'),
+            css_classes: ['dim-label', 'caption'],
+        }));
         const conflictLabel = new Gtk.Label({wrap: true, justify: Gtk.Justification.CENTER, css_classes: ['error'], visible: false});
         box.append(conflictLabel);
         dialog.set_content(box);
@@ -366,6 +370,14 @@ export default class PresizePrefs extends ExtensionPreferences {
             return Gdk.EVENT_STOP;
         });
         dialog.add_controller(controller);
+
+        // Ask the compositor to hand us system shortcuts (Super+Arrow etc.) while the dialog is open,
+        // the same way GNOME Settings does. Without it those keys never reach the window.
+        dialog.connect('map', () => dialog.get_surface()?.inhibit_system_shortcuts(null));
+        dialog.connect('close-request', () => {
+            dialog.get_surface()?.restore_system_shortcuts();
+            return false;
+        });
         dialog.present();
     }
 }
