@@ -41,6 +41,14 @@ Open the settings from the Extensions app or with `gnome-extensions prefs presiz
 - `make pack` produces the zip for extensions.gnome.org.
 - `make pot` refreshes the translation template after changing strings.
 
+After changing `extension.js` or `presets.js`, log out and back in (Wayland).
+After changing only `prefs.js`, kill the process that hosts extension preferences
+and reopen the settings; it restarts on demand:
+
+```bash
+pkill -f "gjs -m /usr/share/gnome-shell/org.gnome.Shell.Extensions"
+```
+
 Requires GNOME Shell 48 or newer.
 
 ## License

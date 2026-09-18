@@ -1,5 +1,6 @@
 import Adw from 'gi://Adw';
 import Gdk from 'gi://Gdk';
+import GObject from 'gi://GObject';
 import Gtk from 'gi://Gtk';
 import {ExtensionPreferences, gettext as _} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 import {POSITIONS, newPreset, loadPresets, savePresets} from './presets.js';
@@ -75,6 +76,7 @@ export default class PresizePrefs extends ExtensionPreferences {
 
     _presetRow(window, preset, index) {
         const row = new Adw.ExpanderRow();
+        this._makeReorderable(window, row, index);
         const shortcutLabel = new Gtk.ShortcutLabel({disabled_text: _('No shortcut'), valign: Gtk.Align.CENTER});
         row.add_suffix(shortcutLabel);
 
@@ -226,6 +228,39 @@ export default class PresizePrefs extends ExtensionPreferences {
 
         refreshHeader();
         return row;
+    }
+
+    // Drag the handle on the left to move a preset up or down the list.
+    _makeReorderable(window, row, index) {
+        const handle = new Gtk.Image({
+            icon_name: 'list-drag-handle-symbolic',
+            tooltip_text: _('Drag to reorder'),
+            valign: Gtk.Align.CENTER,
+            css_classes: ['dim-label'],
+        });
+        row.add_prefix(handle);
+
+        const source = new Gtk.DragSource({actions: Gdk.DragAction.MOVE});
+        source.connect('prepare', (_source, x, y) => {
+            source.set_icon(new Gtk.WidgetPaintable({widget: row}), x, y);
+            const value = new GObject.Value();
+            value.init(GObject.TYPE_INT);
+            value.set_int(index);
+            return Gdk.ContentProvider.new_for_value(value);
+        });
+        handle.add_controller(source);
+
+        const target = Gtk.DropTarget.new(GObject.TYPE_INT, Gdk.DragAction.MOVE);
+        target.connect('drop', (_target, from) => {
+            if (from === index)
+                return false;
+            const [moved] = this._presets.splice(from, 1);
+            this._presets.splice(index, 0, moved);
+            this._save();
+            this._rebuild(window);
+            return true;
+        });
+        row.add_controller(target);
     }
 
     _spinRow(title, value) {
