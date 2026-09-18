@@ -5,7 +5,7 @@
       <default>[
         '{"name":"Small","width":1280,"height":800,"unit":"px","position":"center","shortcut":"&lt;Control&gt;F1"}',
         '{"name":"Medium","width":1600,"height":1000,"unit":"px","position":"center","shortcut":"&lt;Control&gt;F2"}',
-        '{"name":"Large","width":1920,"height":1200,"unit":"px","position":"center","shortcut":"&lt;Control&gt;F3"}',
+        '{"name":"Large","width":1920,"height":1080,"unit":"px","position":"center","shortcut":"&lt;Control&gt;F3"}',
         '{"name":"Almost full","width":90,"height":90,"unit":"%","position":"center","shortcut":"&lt;Control&gt;F4"}'
       ]</default>
       <summary>Presets</summary>
