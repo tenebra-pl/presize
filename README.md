@@ -104,6 +104,14 @@ matching file in `po/` and open a pull request, or open an issue quoting the
 wrong string. To add a language, copy `po/pl.po` to `po/<code>.po`, translate the
 `msgstr` lines, and run `make build` to check it compiles.
 
+To preview the settings window in another language without changing your session,
+run this on the host (the window is served by a shared GNOME process that has to be
+restarted with the new language):
+
+```bash
+systemctl --user set-environment LANGUAGE=de && pkill -f "gjs -m /usr/share/gnome-shell/org.gnome.Shell.Extensions"; gnome-extensions prefs presize@tenebra; systemctl --user unset-environment LANGUAGE
+```
+
 ## License
 
 GPL-2.0-or-later. See [LICENSE](LICENSE).
