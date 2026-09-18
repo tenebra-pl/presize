@@ -79,11 +79,11 @@ msgstr "Szerokość"
 msgid "Height"
 msgstr "Wysokość"
 
-msgid "Leave the window where it is"
-msgstr "Zostaw okno tam, gdzie jest"
+msgid "Position the window"
+msgstr "Pozycjonuj okno"
 
-msgid "Only change its size"
-msgstr "Zmień tylko rozmiar"
+msgid "Off: the window only changes size and stays where it is"
+msgstr "Wyłączone: okno zmienia tylko rozmiar i zostaje tam, gdzie jest"
 
 msgid "Put the window"
 msgstr "Umieść okno"

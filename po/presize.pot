@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: presize\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-18 19:05+0200\n"
+"POT-Creation-Date: 2026-09-18 19:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,11 +71,11 @@ msgid ""
 "Click a preset to change it."
 msgstr ""
 
-#: src/prefs.js:90 src/prefs.js:210
+#: src/prefs.js:90 src/prefs.js:209
 msgid "No shortcut"
 msgstr ""
 
-#: src/prefs.js:94 src/prefs.js:296
+#: src/prefs.js:94 src/prefs.js:293
 msgid "Unnamed preset"
 msgstr ""
 
@@ -112,64 +112,64 @@ msgid "Height"
 msgstr ""
 
 #: src/prefs.js:151
-msgid "Leave the window where it is"
+msgid "Position the window"
 msgstr ""
 
 #: src/prefs.js:152
-msgid "Only change its size"
+msgid "Off: the window only changes size and stays where it is"
 msgstr ""
 
 #: src/prefs.js:155
 msgid "Put the window"
 msgstr ""
 
-#: src/prefs.js:206
+#: src/prefs.js:205
 msgid "Shortcut"
 msgstr ""
 
-#: src/prefs.js:207
+#: src/prefs.js:206
 msgid "Click here, then press the keys you want"
 msgstr ""
 
-#: src/prefs.js:225
+#: src/prefs.js:224
 msgid "Remove this preset"
 msgstr ""
 
-#: src/prefs.js:247
+#: src/prefs.js:244
 msgid "Drag to reorder"
 msgstr ""
 
-#: src/prefs.js:296
+#: src/prefs.js:293
 #, javascript-format
 msgid "Already used by the preset “%s”"
 msgstr ""
 
-#: src/prefs.js:310
+#: src/prefs.js:307
 #, javascript-format
 msgid "Already used by GNOME for “%s”"
 msgstr ""
 
-#: src/prefs.js:318
+#: src/prefs.js:315
 #, javascript-format
 msgid "Already used by your own GNOME shortcut “%s”"
 msgstr ""
 
-#: src/prefs.js:327
+#: src/prefs.js:324
 msgid "New shortcut"
 msgstr ""
 
-#: src/prefs.js:337
+#: src/prefs.js:334
 msgid "Press the keys you want to use"
 msgstr ""
 
-#: src/prefs.js:338
+#: src/prefs.js:335
 msgid "Backspace removes the shortcut, Escape cancels"
 msgstr ""
 
-#: src/prefs.js:340
+#: src/prefs.js:337
 msgid "Shortcuts already used by the system cannot be assigned here."
 msgstr ""
 
-#: src/prefs.js:364
+#: src/prefs.js:361
 msgid "Try a different combination."
 msgstr ""

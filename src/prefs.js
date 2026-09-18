@@ -147,10 +147,10 @@ export default class PresizePrefs extends ExtensionPreferences {
         });
 
         // Position: 3x3 grid of arrows + "leave it where it is"
-        const keepRow = new Adw.SwitchRow({
-            title: _('Leave the window where it is'),
-            subtitle: _('Only change its size'),
-            active: preset.position === 'keep',
+        const placeRow = new Adw.SwitchRow({
+            title: _('Position the window'),
+            subtitle: _('Off: the window only changes size and stays where it is'),
+            active: preset.position !== 'keep',
         });
         const positionRow = new Adw.ActionRow({title: _('Put the window'), subtitle: this._labels[preset.position]});
         const grid = new Gtk.Grid({row_spacing: 4, column_spacing: 4, valign: Gtk.Align.CENTER, margin_top: 6, margin_bottom: 6});
@@ -173,7 +173,6 @@ export default class PresizePrefs extends ExtensionPreferences {
                 if (!button.active)
                     return;
                 preset.position = pos;
-                keepRow.active = false;
                 positionRow.subtitle = this._labels[pos];
                 this._save();
                 refreshHeader();
@@ -182,11 +181,11 @@ export default class PresizePrefs extends ExtensionPreferences {
             buttons.set(pos, button);
         });
         positionRow.add_suffix(grid);
-        row.add_row(keepRow);
+        row.add_row(placeRow);
         row.add_row(positionRow);
 
-        keepRow.connect('notify::active', () => {
-            if (keepRow.active) {
+        placeRow.connect('notify::active', () => {
+            if (!placeRow.active) {
                 preset.position = 'keep';
                 for (const b of buttons.values())
                     b.active = false;
@@ -194,12 +193,12 @@ export default class PresizePrefs extends ExtensionPreferences {
                 preset.position = 'center';
                 buttons.get('center').active = true;
             }
-            grid.sensitive = !keepRow.active;
+            positionRow.visible = placeRow.active;
             positionRow.subtitle = this._labels[preset.position];
             this._save();
             refreshHeader();
         });
-        grid.sensitive = !keepRow.active;
+        positionRow.visible = placeRow.active;
 
         // Shortcut
         const shortcutRow = new Adw.ActionRow({
