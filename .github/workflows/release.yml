@@ -35,5 +35,5 @@ jobs:
           gh release create "$GITHUB_REF_NAME" \
             --title "Presize ${{ steps.version.outputs.version }}" \
             --generate-notes \
-            --notes "Upload \`presize@tenebra.shell-extension.zip\` to https://extensions.gnome.org/upload/ to publish this version." \
+            --notes "Install: download \`presize@tenebra.shell-extension.zip\`, run \`gnome-extensions install --force presize@tenebra.shell-extension.zip\`, log out and back in, then \`gnome-extensions enable presize@tenebra\`." \
             presize@tenebra.shell-extension.zip

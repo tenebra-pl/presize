@@ -22,26 +22,35 @@ Default presets: Ctrl+F1 to Ctrl+F4 for four sizes, all centered.
 
 ## Install
 
-From extensions.gnome.org once published, or from source:
+Presize is distributed through [GitHub releases](https://github.com/tenebra-pl/presize/releases),
+not through extensions.gnome.org.
+
+Download the latest zip and install it:
 
 ```bash
-make install
+curl -LO https://github.com/tenebra-pl/presize/releases/latest/download/presize@tenebra.shell-extension.zip
+gnome-extensions install --force presize@tenebra.shell-extension.zip
 ```
 
-Then log out and back in (Wayland) or restart the shell (X11), and enable:
+Then log out and back in (Wayland) or restart the shell with Alt+F2, `r` (X11), and
+enable it:
 
 ```bash
 gnome-extensions enable presize@tenebra
 ```
 
 Open the settings from the Extensions app or with `gnome-extensions prefs presize@tenebra`.
+To update, repeat the two install commands with the new release and log out and back
+in again.
+
+To install from source instead, clone the repository and run `make install`.
 
 ## Development
 
 - `src/` is the extension, `po/` holds translations.
 - `make build` compiles the schema and translations into `build/`.
 - `make install` symlinks `build/` into the extensions folder.
-- `make pack` produces the zip for extensions.gnome.org.
+- `make pack` produces the installable zip attached to GitHub releases.
 - `make pot` refreshes the translation template after changing strings.
 
 After changing `extension.js` or `presets.js`, log out and back in (Wayland).
@@ -57,8 +66,7 @@ Requires GNOME Shell 48 or newer.
 ### Releasing a version
 
 Versions are git tags. The `version-name` field in `metadata.json` is filled in at
-build time from the tag; the numeric `version` field is managed by
-extensions.gnome.org and is not edited by hand.
+build time from the tag.
 
 ```bash
 git tag -a v1.0.0 -m "Presize 1.0.0"
@@ -66,13 +74,11 @@ git push origin v1.0.0
 ```
 
 The Release workflow then builds `presize@tenebra.shell-extension.zip`, creates a
-GitHub release with generated notes and attaches the zip. The last step is manual,
-as extensions.gnome.org has no upload API: download the zip from the release and
-submit it at <https://extensions.gnome.org/upload/>. Every submission is reviewed
-by a person, usually within a few days.
+GitHub release with generated notes and attaches the zip. That release is what users
+install from.
 
 The CI workflow runs on every push: JavaScript syntax, translation completeness
-against the source strings, and a full build.
+against the source strings, a full build and the Shexli packaging check.
 
 ### New GNOME releases
 
@@ -86,8 +92,7 @@ upgrade:
    journal.
 2. If the version is missing, add it to `shell-version`, `make install`, log out
    and back in, and try every preset and the settings window.
-3. Bump `version` in `metadata.json` and upload a new `make pack` zip to
-   extensions.gnome.org. Users get the update through the Extensions app.
+3. Tag a new version so the Release workflow publishes a fresh zip.
 
 Presize touches only stable public APIs (keyboard grabs, the focused window,
 work areas, libadwaita), so most releases will need nothing more than the new
