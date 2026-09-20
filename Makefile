@@ -19,6 +19,7 @@ build:
 	cp src/*.js src/metadata.json $(BUILD)/
 	sed -i 's/"version-name": "[^"]*"/"version-name": "$(VERSION)"/' $(BUILD)/metadata.json
 	cp -r src/schemas $(BUILD)/schemas
+	cp -r src/icons $(BUILD)/icons
 	$(SCHEMAS) $(BUILD)/schemas
 	for l in $(LANGS); do \
 	  mkdir -p $(BUILD)/locale/$$l/LC_MESSAGES; \

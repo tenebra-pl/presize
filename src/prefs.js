@@ -1,6 +1,7 @@
 import Adw from 'gi://Adw';
 import Gdk from 'gi://Gdk';
 import Gio from 'gi://Gio';
+import GLib from 'gi://GLib';
 import GObject from 'gi://GObject';
 import Gtk from 'gi://Gtk';
 import {ExtensionPreferences, gettext as _} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
@@ -31,16 +32,14 @@ const GNOME_SHORTCUT_SCHEMAS = [
     'org.gnome.settings-daemon.plugins.media-keys',
 ];
 
-const POSITION_ARROWS = {
-    'top-left': '↖', 'top': '↑', 'top-right': '↗',
-    'left': '←', 'center': '●', 'right': '→',
-    'bottom-left': '↙', 'bottom': '↓', 'bottom-right': '↘',
-};
 
 export default class PresizePrefs extends ExtensionPreferences {
     fillPreferencesWindow(window) {
         this._settings = this.getSettings();
         this._labels = positionLabels();
+        // Our own symbolic icons for the position grid live in icons/ next to this file.
+        Gtk.IconTheme.get_for_display(Gdk.Display.get_default())
+            .add_search_path(GLib.build_filenamev([this.path, 'icons']));
         this._presets = loadPresets(this._settings);
         this._rows = [];
 
@@ -158,7 +157,7 @@ export default class PresizePrefs extends ExtensionPreferences {
         let first = null;
         POSITIONS.forEach((pos, i) => {
             const button = new Gtk.ToggleButton({
-                label: POSITION_ARROWS[pos],
+                icon_name: `presize-${pos}-symbolic`,
                 tooltip_text: this._labels[pos],
                 width_request: 36,
                 height_request: 32,
