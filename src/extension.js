@@ -1,10 +1,11 @@
+// SPDX-License-Identifier: GPL-2.0-or-later
 import Meta from 'gi://Meta';
 import Shell from 'gi://Shell';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 import {loadPresets, computeSize, computeOrigin} from './presets.js';
 
-export default class CenterResizeExtension extends Extension {
+export default class PresizeExtension extends Extension {
     enable() {
         this._settings = this.getSettings();
         this._actions = new Map(); // action id -> preset
@@ -16,6 +17,7 @@ export default class CenterResizeExtension extends Extension {
 
     disable() {
         this._ungrabAll();
+        this._actions = null;
         global.display.disconnect(this._activatedId);
         this._settings.disconnect(this._changedId);
         this._settings = null;

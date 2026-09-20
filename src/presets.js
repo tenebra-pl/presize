@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: GPL-2.0-or-later
 // Shared between extension.js and prefs.js: preset (de)serialisation and geometry.
 
 export const POSITIONS = [

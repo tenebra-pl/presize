@@ -10,6 +10,5 @@
   "settings-schema": "org.gnome.shell.extensions.presize",
   "gettext-domain": "presize",
   "url": "https://github.com/tenebra-pl/presize",
-  "version": 1,
   "version-name": "0.0.0-dev"
 }

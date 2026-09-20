@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: GPL-2.0-or-later
 import Adw from 'gi://Adw';
 import Gdk from 'gi://Gdk';
 import Gio from 'gi://Gio';
@@ -38,8 +39,11 @@ export default class PresizePrefs extends ExtensionPreferences {
         this._settings = this.getSettings();
         this._labels = positionLabels();
         // Our own symbolic icons for the position grid live in icons/ next to this file.
-        Gtk.IconTheme.get_for_display(Gdk.Display.get_default())
-            .add_search_path(GLib.build_filenamev([this.path, 'icons']));
+        // The preferences process is shared and long-lived, so add the path only once.
+        const iconTheme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
+        const iconPath = GLib.build_filenamev([this.path, 'icons']);
+        if (!iconTheme.get_search_path().includes(iconPath))
+            iconTheme.add_search_path(iconPath);
         this._presets = loadPresets(this._settings);
         this._rows = [];
 
@@ -145,7 +149,7 @@ export default class PresizePrefs extends ExtensionPreferences {
             refreshHeader();
         });
 
-        // Position: 3x3 grid of arrows + "leave it where it is"
+        // Position: switch + 3x3 grid of icons
         const placeRow = new Adw.SwitchRow({
             title: _('Position the window'),
             subtitle: _('Off: the window only changes size and stays where it is'),
