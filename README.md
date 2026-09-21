@@ -22,10 +22,13 @@ Default presets: Ctrl+F1 to Ctrl+F4 for four sizes, all centered.
 
 ## Install
 
-Presize is distributed through [GitHub releases](https://github.com/tenebra-pl/presize/releases),
-not through extensions.gnome.org.
+The easiest way is the GNOME Extensions website, which also delivers updates
+through the Extensions app:
 
-Download the latest zip and install it:
+**[extensions.gnome.org/extension/10983/presize](https://extensions.gnome.org/extension/10983/presize/)**
+
+You can also install any [GitHub release](https://github.com/tenebra-pl/presize/releases)
+by hand:
 
 ```bash
 curl -LO https://github.com/tenebra-pl/presize/releases/latest/download/presize@tenebra.shell-extension.zip
@@ -40,10 +43,9 @@ gnome-extensions enable presize@tenebra
 ```
 
 Open the settings from the Extensions app or with `gnome-extensions prefs presize@tenebra`.
-To update, repeat the two install commands with the new release and log out and back
-in again.
+Manual installs do not update themselves; repeat the two commands for a new release.
 
-To install from source instead, clone the repository and run `make install`.
+To install from source, clone the repository and run `make install`.
 
 ## Development
 
@@ -74,8 +76,10 @@ git push origin v1.0.0
 ```
 
 The Release workflow then builds `presize@tenebra.shell-extension.zip`, creates a
-GitHub release with generated notes and attaches the zip. That release is what users
-install from.
+GitHub release with generated notes and attaches the zip. Download that zip and
+submit it at <https://extensions.gnome.org/upload/>; the site matches it to the
+existing extension by uuid, and every version is reviewed by a person before it
+goes live. Users of the website get the update through the Extensions app.
 
 The CI workflow runs on every push: JavaScript syntax, translation completeness
 against the source strings, a full build and the Shexli packaging check.
@@ -92,7 +96,8 @@ upgrade:
    journal.
 2. If the version is missing, add it to `shell-version`, `make install`, log out
    and back in, and try every preset and the settings window.
-3. Tag a new version so the Release workflow publishes a fresh zip.
+3. Tag a new version so the Release workflow publishes a fresh zip, then upload it
+   to extensions.gnome.org.
 
 Presize touches only stable public APIs (keyboard grabs, the focused window,
 work areas, libadwaita), so most releases will need nothing more than the new
