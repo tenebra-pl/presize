@@ -1,5 +1,11 @@
 # Presize
 
+[![Get it on GNOME Extensions](https://raw.githubusercontent.com/andyholmes/gnome-shell-extensions-badge/master/get-it-on-ego.svg)](https://extensions.gnome.org/extension/10983/presize/)
+
+[![Downloads](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fextensions.gnome.org%2Fextension-info%2F%3Fuuid%3Dpresize%40tenebra&query=%24.downloads&label=downloads&color=4a86cf)](https://extensions.gnome.org/extension/10983/presize/)
+[![CI](https://img.shields.io/github/actions/workflow/status/tenebra-pl/presize/ci.yml?branch=main&label=CI)](https://github.com/tenebra-pl/presize/actions/workflows/ci.yml)
+[![License: GPL-2.0-or-later](https://img.shields.io/badge/license-GPL--2.0--or--later-blue)](LICENSE)
+
 A GNOME Shell extension that resizes the active window to a preset size and puts it
 where you want, with one keyboard shortcut. No tiling, no grids, no layouts.
 Just "make this window 1600 × 1000 and center it".
