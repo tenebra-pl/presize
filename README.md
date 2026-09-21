@@ -18,7 +18,9 @@ the screen with Super+Arrow and the rest keep working exactly as before. Presize
 only adds the layouts GNOME does not offer, such as a fixed 1600 × 1000 window in
 the middle of the screen or a window at 90 % of the work area.
 
-![Presize settings window with four presets](docs/settings.png)
+<p align="center">
+  <img src="docs/settings.png" alt="Presize settings window with four presets" width="560">
+</p>
 
 ## Features
 
