@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#62a0ea"/>
+      <stop offset="1" stop-color="#1c71d8"/>
+    </linearGradient>
+    <linearGradient id="window" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#deddda"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <!-- screen -->
+  <rect x="8" y="16" width="112" height="96" rx="14" fill="#1a5fb4"/>
+  <rect x="8" y="14" width="112" height="96" rx="14" fill="url(#screen)"/>
+  <!-- centered window -->
+  <rect x="38" y="38" width="52" height="48" rx="6" fill="url(#window)" filter="url(#shadow)"/>
+  <rect x="38" y="38" width="52" height="12" rx="6" fill="#c0bfbc"/>
+  <rect x="38" y="44" width="52" height="6" fill="#c0bfbc"/>
+  <circle cx="83" cy="44" r="2.5" fill="#77767b"/>
+  <!-- corner ticks: "fits to preset" -->
+  <path d="M20 34v-8h8M108 34v-8h-8M20 90v8h8M108 90v8h-8" fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
