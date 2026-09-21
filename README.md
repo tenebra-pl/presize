@@ -1,6 +1,6 @@
 # Presize
 
-[![Get it on GNOME Extensions](https://raw.githubusercontent.com/andyholmes/gnome-shell-extensions-badge/master/get-it-on-ego.svg)](https://extensions.gnome.org/extension/10983/presize/)
+<a href="https://extensions.gnome.org/extension/10983/presize/"><img src="https://raw.githubusercontent.com/andyholmes/gnome-shell-extensions-badge/master/get-it-on-ego.svg" alt="Get it on GNOME Extensions" height="60"></a>
 
 [![Downloads](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fextensions.gnome.org%2Fextension-info%2F%3Fuuid%3Dpresize%40tenebra&query=%24.downloads&label=downloads&color=4a86cf)](https://extensions.gnome.org/extension/10983/presize/)
 [![CI](https://img.shields.io/github/actions/workflow/status/tenebra-pl/presize/ci.yml?branch=main&label=CI)](https://github.com/tenebra-pl/presize/actions/workflows/ci.yml)
