@@ -7,6 +7,11 @@ Just "make this window 1600 × 1000 and center it".
 Designed so that anyone can set it up: every preset is a name, a size, a place on the
 screen and a shortcut, all edited in a normal GNOME preferences window.
 
+Presize does not replace GNOME's own window management. Maximizing, tiling to half
+the screen with Super+Arrow and the rest keep working exactly as before. Presize
+only adds the layouts GNOME does not offer, such as a fixed 1600 × 1000 window in
+the middle of the screen or a window at 90 % of the work area.
+
 ![Presize settings window with four presets](docs/settings.png)
 
 ## Features
