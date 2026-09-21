@@ -9,6 +9,7 @@ export default class PresizeExtension extends Extension {
     enable() {
         this._settings = this.getSettings();
         this._actions = new Map(); // action id -> preset
+        this._pending = null; // {win, sizeId, goneId}: window we wait on after unmaximizing
         this._activatedId = global.display.connect('accelerator-activated',
             (_display, action) => this._onActivated(action));
         this._changedId = this._settings.connect('changed::presets', () => this._grabAll());
@@ -16,6 +17,7 @@ export default class PresizeExtension extends Extension {
     }
 
     disable() {
+        this._cancelPending();
         this._ungrabAll();
         this._actions = null;
         global.display.disconnect(this._activatedId);
@@ -55,14 +57,38 @@ export default class PresizeExtension extends Extension {
         if (!win || !win.allows_resize() || !win.allows_move())
             return;
 
-        const area = win.get_work_area_for_monitor(win.get_monitor());
-        const [width, height] = computeSize(preset, area);
+        this._cancelPending();
+        if (!win.is_fullscreen() && !win.is_maximized()) {
+            this._place(win, preset);
+            return;
+        }
 
+        // Leaving fullscreen or maximized state restores the old geometry on the next
+        // frame, which would overwrite anything we set right now. Place the window once
+        // that restore has happened.
+        const sizeId = win.connect('size-changed', () => {
+            this._cancelPending();
+            this._place(win, preset);
+        });
+        const goneId = win.connect('unmanaged', () => this._cancelPending());
+        this._pending = {win, sizeId, goneId};
         if (win.is_fullscreen())
             win.unmake_fullscreen();
         if (win.is_maximized())
             win.unmaximize();
+    }
 
+    _cancelPending() {
+        if (!this._pending)
+            return;
+        this._pending.win.disconnect(this._pending.sizeId);
+        this._pending.win.disconnect(this._pending.goneId);
+        this._pending = null;
+    }
+
+    _place(win, preset) {
+        const area = win.get_work_area_for_monitor(win.get_monitor());
+        const [width, height] = computeSize(preset, area);
         const [x, y] = computeOrigin(preset, width, height, area, win.get_frame_rect());
         win.move_resize_frame(true, x, y, width, height);
     }
