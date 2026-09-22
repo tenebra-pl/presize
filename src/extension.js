@@ -54,7 +54,9 @@ export default class PresizeExtension extends Extension {
 
     _apply(preset) {
         const win = global.display.get_focus_window();
-        if (!win || !win.allows_resize() || !win.allows_move())
+        // allows_resize() is false for maximized and fullscreen windows, so it is
+        // checked in _place(), after the window has been restored.
+        if (!win || win.get_window_type() !== Meta.WindowType.NORMAL)
             return;
 
         this._cancelPending();
@@ -87,6 +89,8 @@ export default class PresizeExtension extends Extension {
     }
 
     _place(win, preset) {
+        if (!win.allows_resize() || !win.allows_move())
+            return;
         const area = win.get_work_area_for_monitor(win.get_monitor());
         const [width, height] = computeSize(preset, area);
         const [x, y] = computeOrigin(preset, width, height, area, win.get_frame_rect());
