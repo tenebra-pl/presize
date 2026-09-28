@@ -60,14 +60,17 @@ export default class PresizeExtension extends Extension {
             return;
 
         this._cancelPending();
-        if (!win.is_fullscreen() && !win.is_maximized()) {
+        // A window tiled to a screen edge with Super+Arrow is maximized vertically only,
+        // so is_maximized() is false for it; get_maximize_flags() covers both cases.
+        const maximized = win.get_maximize_flags() !== Meta.MaximizeFlags.NONE;
+        if (!win.is_fullscreen() && !maximized) {
             this._place(win, preset);
             return;
         }
 
-        // Leaving fullscreen or maximized state restores the old geometry on the next
-        // frame, which would overwrite anything we set right now. Place the window once
-        // that restore has happened.
+        // Leaving fullscreen, maximized or tiled state restores the old geometry on the
+        // next frame, which would overwrite anything we set right now. Place the window
+        // once that restore has happened. unmaximize() also clears tiling.
         const sizeId = win.connect('size-changed', () => {
             this._cancelPending();
             this._place(win, preset);
@@ -76,7 +79,7 @@ export default class PresizeExtension extends Extension {
         this._pending = {win, sizeId, goneId};
         if (win.is_fullscreen())
             win.unmake_fullscreen();
-        if (win.is_maximized())
+        if (maximized)
             win.unmaximize();
     }
 
