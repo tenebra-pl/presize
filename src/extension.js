@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
+import GLib from 'gi://GLib';
 import Meta from 'gi://Meta';
 import Shell from 'gi://Shell';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
@@ -9,7 +10,7 @@ export default class PresizeExtension extends Extension {
     enable() {
         this._settings = this.getSettings();
         this._actions = new Map(); // action id -> preset
-        this._pending = null; // {win, sizeId, goneId}: window we wait on after unmaximizing
+        this._pending = null; // {win, sizeId, goneId, timeoutId}: window we wait on after unmaximizing
         this._activatedId = global.display.connect('accelerator-activated',
             (_display, action) => this._onActivated(action));
         this._changedId = this._settings.connect('changed::presets', () => this._grabAll());
@@ -62,33 +63,45 @@ export default class PresizeExtension extends Extension {
         this._cancelPending();
         // A window tiled to a screen edge with Super+Arrow is maximized vertically only,
         // so is_maximized() is false for it; get_maximize_flags() covers both cases.
-        const maximized = win.get_maximize_flags() !== Meta.MaximizeFlags.NONE;
-        if (!win.is_fullscreen() && !maximized) {
+        // Meta.MaximizeFlags has no NONE member, hence the comparison with 0.
+        const flags = win.get_maximize_flags();
+        const fullscreen = win.is_fullscreen();
+        if (!fullscreen && flags === 0) {
             this._place(win, preset);
             return;
         }
 
         // Leaving fullscreen, maximized or tiled state restores the old geometry on the
         // next frame, which would overwrite anything we set right now. Place the window
-        // once that restore has happened. unmaximize() also clears tiling.
+        // once that restore has happened. unmaximize() also clears tiling. The timeout
+        // is a safety net in case no size change is reported.
         const sizeId = win.connect('size-changed', () => {
             this._cancelPending();
             this._place(win, preset);
         });
         const goneId = win.connect('unmanaged', () => this._cancelPending());
-        this._pending = {win, sizeId, goneId};
-        if (win.is_fullscreen())
+        const timeoutId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 300, () => {
+            this._pending.timeoutId = 0;
+            this._cancelPending();
+            this._place(win, preset);
+            return GLib.SOURCE_REMOVE;
+        });
+        this._pending = {win, sizeId, goneId, timeoutId};
+        if (fullscreen)
             win.unmake_fullscreen();
-        if (maximized)
+        if (flags !== 0)
             win.unmaximize();
     }
 
     _cancelPending() {
         if (!this._pending)
             return;
-        this._pending.win.disconnect(this._pending.sizeId);
-        this._pending.win.disconnect(this._pending.goneId);
+        const {win, sizeId, goneId, timeoutId} = this._pending;
         this._pending = null;
+        win.disconnect(sizeId);
+        win.disconnect(goneId);
+        if (timeoutId)
+            GLib.Source.remove(timeoutId);
     }
 
     _place(win, preset) {
