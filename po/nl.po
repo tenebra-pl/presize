@@ -123,3 +123,6 @@ msgstr "Sneltoetsen die het systeem al gebruikt, kunnen hier niet worden toegewe
 
 msgid "Try a different combination."
 msgstr "Probeer een andere combinatie."
+
+msgid "A shortcut needs Ctrl, Alt or Super. Try a different combination."
+msgstr "Een sneltoets moet Ctrl, Alt of Super bevatten. Probeer een andere combinatie."

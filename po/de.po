@@ -123,3 +123,6 @@ msgstr "Vom System belegte Tastenkürzel können hier nicht zugewiesen werden."
 
 msgid "Try a different combination."
 msgstr "Versuchen Sie eine andere Kombination."
+
+msgid "A shortcut needs Ctrl, Alt or Super. Try a different combination."
+msgstr "Ein Tastenkürzel braucht Strg, Alt oder Super. Versuchen Sie eine andere Kombination."

@@ -23,6 +23,14 @@ export function loadPresets(settings) {
     return out;
 }
 
+// A shortcut must use Ctrl, Alt or Super. GTK also accepts plain keys such as a letter,
+// Space or Return; grabbed globally they would swallow that key in every application.
+const SAFE_MODIFIER_RE = /<(Control|Primary|Ctrl|Alt|Mod1|Super|Meta|Hyper)>/i;
+
+export function isSafeShortcut(accel) {
+    return SAFE_MODIFIER_RE.test(accel);
+}
+
 export function savePresets(settings, presets) {
     settings.set_strv('presets', presets.map(p => JSON.stringify(p)));
 }

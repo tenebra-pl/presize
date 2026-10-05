@@ -4,7 +4,7 @@ import Meta from 'gi://Meta';
 import Shell from 'gi://Shell';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
-import {loadPresets, computeSize, computeOrigin} from './presets.js';
+import {loadPresets, computeSize, computeOrigin, isSafeShortcut} from './presets.js';
 
 export default class PresizeExtension extends Extension {
     enable() {
@@ -31,6 +31,10 @@ export default class PresizeExtension extends Extension {
         for (const preset of loadPresets(this._settings)) {
             if (!preset.shortcut)
                 continue;
+            if (!isSafeShortcut(preset.shortcut)) {
+                console.warn(`presize: ignoring "${preset.shortcut}" for "${preset.name}", it has no Ctrl, Alt or Super`);
+                continue;
+            }
             const action = global.display.grab_accelerator(preset.shortcut, Meta.KeyBindingFlags.IGNORE_AUTOREPEAT);
             if (action === Meta.KeyBindingAction.NONE) {
                 console.warn(`presize: could not grab "${preset.shortcut}" for "${preset.name}"`);

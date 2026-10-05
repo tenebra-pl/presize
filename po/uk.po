@@ -123,3 +123,6 @@ msgstr "Сполучення, які вже зайняті системою, т�
 
 msgid "Try a different combination."
 msgstr "Спробуйте іншу комбінацію."
+
+msgid "A shortcut needs Ctrl, Alt or Super. Try a different combination."
+msgstr "Сполучення має містити Ctrl, Alt або Super. Спробуйте іншу комбінацію."

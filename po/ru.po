@@ -123,3 +123,6 @@ msgstr "Сочетания, уже занятые системой, здесь �
 
 msgid "Try a different combination."
 msgstr "Попробуйте другую комбинацию."
+
+msgid "A shortcut needs Ctrl, Alt or Super. Try a different combination."
+msgstr "Сочетание должно содержать Ctrl, Alt или Super. Попробуйте другую комбинацию."

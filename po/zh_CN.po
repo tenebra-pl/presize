@@ -123,3 +123,6 @@ msgstr "系统已占用的快捷键无法在此分配。"
 
 msgid "Try a different combination."
 msgstr "请尝试其他组合。"
+
+msgid "A shortcut needs Ctrl, Alt or Super. Try a different combination."
+msgstr "快捷键必须包含 Ctrl、Alt 或 Super。请尝试其他组合。"

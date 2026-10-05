@@ -123,3 +123,6 @@ msgstr "Los atajos que ya usa el sistema no se pueden asignar aquí."
 
 msgid "Try a different combination."
 msgstr "Pruebe otra combinación."
+
+msgid "A shortcut needs Ctrl, Alt or Super. Try a different combination."
+msgstr "Un atajo necesita Ctrl, Alt o Super. Pruebe otra combinación."

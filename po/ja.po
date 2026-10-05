@@ -123,3 +123,6 @@ msgstr "システムが既に使用しているショートカットはここで
 
 msgid "Try a different combination."
 msgstr "別の組み合わせを試してください。"
+
+msgid "A shortcut needs Ctrl, Alt or Super. Try a different combination."
+msgstr "ショートカットには Ctrl、Alt、Super のいずれかが必要です。別の組み合わせを試してください。"

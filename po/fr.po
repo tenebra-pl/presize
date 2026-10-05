@@ -123,3 +123,6 @@ msgstr "Les raccourcis déjà utilisés par le système ne peuvent pas être att
 
 msgid "Try a different combination."
 msgstr "Essayez une autre combinaison."
+
+msgid "A shortcut needs Ctrl, Alt or Super. Try a different combination."
+msgstr "Un raccourci doit contenir Ctrl, Alt ou Super. Essayez une autre combinaison."

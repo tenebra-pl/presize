@@ -123,3 +123,6 @@ msgstr "Le scorciatoie già usate dal sistema non possono essere assegnate qui."
 
 msgid "Try a different combination."
 msgstr "Prova un’altra combinazione."
+
+msgid "A shortcut needs Ctrl, Alt or Super. Try a different combination."
+msgstr "Una scorciatoia deve contenere Ctrl, Alt o Super. Prova un’altra combinazione."

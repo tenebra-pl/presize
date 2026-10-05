@@ -123,3 +123,6 @@ msgstr "Wybierz inną kombinację."
 
 msgid "Shortcuts already used by the system cannot be assigned here."
 msgstr "Skrótów używanych przez system nie da się tutaj przypisać."
+
+msgid "A shortcut needs Ctrl, Alt or Super. Try a different combination."
+msgstr "Skrót musi zawierać Ctrl, Alt lub Super. Wybierz inną kombinację."

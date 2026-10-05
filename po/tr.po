@@ -123,3 +123,6 @@ msgstr "Sistem tarafından kullanılan kısayollar buraya atanamaz."
 
 msgid "Try a different combination."
 msgstr "Başka bir kombinasyon deneyin."
+
+msgid "A shortcut needs Ctrl, Alt or Super. Try a different combination."
+msgstr "Kısayolda Ctrl, Alt veya Super bulunmalıdır. Başka bir kombinasyon deneyin."

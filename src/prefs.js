@@ -6,7 +6,7 @@ import GLib from 'gi://GLib';
 import GObject from 'gi://GObject';
 import Gtk from 'gi://Gtk';
 import {ExtensionPreferences, gettext as _} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
-import {POSITIONS, newPreset, loadPresets, savePresets} from './presets.js';
+import {POSITIONS, newPreset, loadPresets, savePresets, isSafeShortcut} from './presets.js';
 
 // Built lazily: gettext works only once the extension object exists.
 function positionLabels() {
@@ -357,8 +357,13 @@ export default class PresizePrefs extends ExtensionPreferences {
                 return Gdk.EVENT_STOP;
             }
             if (!Gtk.accelerator_valid(keyval, mask))
-                return Gdk.EVENT_STOP; // lone modifier or unmodified plain key: keep waiting
+                return Gdk.EVENT_STOP; // a lone modifier: keep waiting for the rest
             const accel = Gtk.accelerator_name(Gdk.keyval_to_lower(keyval), mask);
+            if (!isSafeShortcut(accel)) {
+                conflictLabel.label = _('A shortcut needs Ctrl, Alt or Super. Try a different combination.');
+                conflictLabel.visible = true;
+                return Gdk.EVENT_STOP;
+            }
             const conflict = this._findConflict(accel, preset);
             if (conflict) {
                 conflictLabel.label = `${conflict}. ${_('Try a different combination.')}`;
