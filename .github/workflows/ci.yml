@@ -37,7 +37,20 @@ jobs:
         run: unzip -l presize@tenebra.shell-extension.zip
 
       # The same static checks extensions.gnome.org recommends before uploading.
+      # Shexli exits with 0 even when it finds problems, so the step reads its JSON
+      # report and fails on any finding. EGO-M-004 is skipped: Shexli 0.2.1 treats
+      # every version above 50 as an "implausible future release", although GNOME 51
+      # is a stable release. Remove the skip once Shexli knows about GNOME 51.
       - name: Shexli review-guideline check
         run: |
           pip install -q shexli
           shexli presize@tenebra.shell-extension.zip
+          shexli --format json presize@tenebra.shell-extension.zip > shexli.json
+          python3 - <<'PY'
+          import json, sys
+          findings = json.load(open('shexli.json'))['findings']
+          real = [f for f in findings if f['rule_id'] != 'EGO-M-004']
+          for f in real:
+              print(f"::error::{f['rule_id']}: {f['message']}")
+          sys.exit(1 if real else 0)
+          PY
