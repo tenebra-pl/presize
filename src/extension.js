@@ -67,7 +67,7 @@ export default class PresizeExtension extends Extension {
         this._cancelPending();
         // A window tiled to a screen edge with Super+Arrow is maximized vertically only,
         // so is_maximized() is false for it; get_maximize_flags() covers both cases.
-        // Meta.MaximizeFlags has no NONE member, hence the comparison with 0.
+        // Meta.MaximizeFlags has no NONE member before GNOME 51, hence the comparison with 0.
         const flags = win.get_maximize_flags();
         const fullscreen = win.is_fullscreen();
         if (!fullscreen && flags === 0) {
